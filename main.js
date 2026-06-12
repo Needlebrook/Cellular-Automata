@@ -5,6 +5,11 @@ import { DayAndNightRules } from "./rules/DayAndNightRules.js";
 import { ConwayRules } from "./rules/ConwayRules.js";
 import { HighLifeRules } from "./rules/HighLifeRules.js";
 import { SeedsRules } from "./rules/SeedsRules.js";
+import { BriansBrainRules } from "./rules/BriansBrainRules.js";
+import { MazeRules } from "./rules/MazeRules.js";
+import { MazectricRules } from "./rules/MazectricRules.js";
+import { ReplicatorRules } from "./rules/ReplicatorRules.js";
+import { ServiettesRules } from "./rules/ServiettesRules.js";
 
 const canvas = document.getElementById("canvas");
 
@@ -157,6 +162,32 @@ document
             case "dayandnight":
                 simulation.setRules(
                     new DayAndNightRules()
+                );
+                break;
+
+            case "briansbrain":
+                simulation.setRules(
+                    new BriansBrainRules()
+                );
+                break;
+            case "maze":
+                simulation.setRules(
+                    new MazeRules()
+                );
+                break;          
+            case "mazectric":
+                simulation.setRules(
+                    new MazectricRules()
+                );
+                break;
+            case "replicator":
+                simulation.setRules(
+                    new ReplicatorRules()
+                );
+                break;
+            case "serviettes":
+                simulation.setRules(
+                    new ServiettesRules()
                 );
                 break;
         }
