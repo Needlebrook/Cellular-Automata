@@ -3,40 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Cellular Automata</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="controls">
-        <button id="playBtn">Play</button>
-        <button id="pauseBtn">Pause</button>
-        <button id="stepBtn">Step</button>
-        <button id="clearBtn">Clear</button>
+    <div id="intro-screen">
+        <h1 id="intro-title">
+            CELLULAR <br>
+            AUTOMATA</h1>
     </div>
 
-    <div class="top-right-ui">
+    <div id="main-content">
+        <div class="controls">
+            <button id="playBtn">Play</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="stepBtn">Step</button>
+            <button id="clearBtn">Clear</button>
+        </div>
 
-    <select id="ruleSelect">
-        <option value="conway">Conway</option>
-        <option value="highlife">HighLife</option>
-        <option value="seeds">Seeds</option>
-        <option value="dayandnight">Day & Night</option>
-        <option value="briansbrain">Brian's Brain</option>
-        <option value="maze">Maze</option>
-        <option value="mazectric">Mazectric</option>
-        <option value="replicator">Replicator</option>
-        <option value="serviettes">Serviettes</option>
-    </select>
+        <div class="top-right-ui">
 
+        <select id="ruleSelect">
+            <option value="conway">Conway</option>
+            <option value="highlife">HighLife</option>
+            <option value="seeds">Seeds</option>
+            <option value="dayandnight">Day & Night</option>
+            <option value="briansbrain">Brian's Brain</option>
+            <option value="maze">Maze</option>
+            <option value="mazectric">Mazectric</option>
+            <option value="replicator">Replicator</option>
+            <option value="serviettes">Serviettes</option>
+        </select>
+
+        </div>
+
+        <div id="generationCounter">
+            Generation: 0
+        </div>
+
+        <canvas id="canvas"></canvas>
+
+        <div id="generalInfoBox" class="info-box">
+            <div class="info-header">
+                <button class="toggle-btn">
+                    ▼
+                </button>
+                <span>About Cellular Automata</span>
+            </div>
+            <div class="info-body">
+                    <strong>What are Cellular Automata?</strong>
+                <p>
+                    Cellular automata are simulations made up of tiny squares called
+                    <em>cells</em>. Each cell can be either alive or dead (or sometimes
+                    have more than two states).
+                </p>
+                <p>
+                    Time advances in steps called <em>generations</em>. At every generation,
+                    each cell looks at its neighbouring cells and follows a simple set of rules.
+                </p>
+                <p>
+                    Although the rules are simple, they can create surprisingly complex
+                    behaviour including moving patterns, self-replication, maze formation,
+                    fractals, and structures that appear almost alive.
+                </p>
+                <p>
+                    Use your mouse to draw cells on the grid, then press <strong>Play</strong>
+                    to watch the automaton evolve.
+                </p>
+                 <strong>Understanding the rule notation</strong>
+                <p>
+                The format B/S describes how cells are born and survive.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>B</strong> = Birth conditions
+                    </li>
+                    <li>
+                        <strong>S</strong> = Survival conditions
+                    </li>
+                </ul>
+                <p>
+                For example, Conway's Life uses
+                <strong>B3/S23</strong>.
+                A dead cell becomes alive if it has exactly
+                3 neighbours, while a living cell survives with
+                2 or 3 neighbours.
+                </p>
+            </div>
+        </div>
+        <div id="tipBox">
+            <span id="tipText">
+                💡 Try drawing on the grid!
+            </span>
+            <button id="closeTipBtn">
+                ✕
+            </button>
+        </div>
+        <div id="ruleInfoBox" class="info-box">
+
+            <div class="info-header">
+
+                <button class="toggle-btn">
+                    ▼
+                </button>
+
+                <span id="ruleTitle">
+                    Conway's Life
+                </span>
+
+            </div>
+
+            <div class="info-body">
+
+                <div id="ruleContent">
+
+                </div>
+            </div>
+
+        </div>
     </div>
-
-    <div id="generationCounter">
-        Generation: 0
-    </div>
-
-    <canvas id="canvas"></canvas>
-
     <script type="module" src="main.js"></script>
 </body>
 </html>
