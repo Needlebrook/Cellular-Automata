@@ -301,6 +301,8 @@ canvas {
     #generationCounter {
         font-size: 12px;
         padding: 6px;
+        top: 60px;     
+        left: 5px;
     }
 
     .top-right-ui {
@@ -316,4 +318,6 @@ canvas {
         right: 10px;
         width: auto;
     }
+
+
 }
