@@ -303,6 +303,8 @@ canvas {
         padding: 6px;
         top: 60px;     
         left: 5px;
+        bottom: auto;
+        right: auto;
     }
 
     .top-right-ui {
