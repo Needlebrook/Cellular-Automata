@@ -6,6 +6,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .controls {
     position: fixed;
     top: 10px;
@@ -270,11 +276,11 @@ canvas {
 
 #ruleInfoBox.minimized {
 
-    left: 330px;
+    left: 20px;
 
     top: auto;
 
-    bottom: 20px;
+    bottom: 100px;
 
     width: 190px;
 }

@@ -18,9 +18,9 @@ let drawMode = 1;
 
 const CELL_SIZE = 15;
 
-const rows = Math.ceil(window.innerHeight / CELL_SIZE);
+const cols = Math.floor(window.innerWidth / CELL_SIZE);
 
-const cols = Math.ceil(window.innerWidth / CELL_SIZE);
+const rows = Math.floor(window.innerHeight / CELL_SIZE);
 
 const grid = new Grid(rows, cols);
 
