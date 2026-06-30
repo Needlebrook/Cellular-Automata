@@ -76,6 +76,53 @@ window.addEventListener("mouseup", () => {
     isDrawing = false;
 });
 
+canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+
+    if (simulation.running) return;
+
+    isDrawing = true;
+
+    const touch = e.touches[0];
+
+    paintTouch(touch);
+});
+
+canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+
+    if (!isDrawing) return;
+
+    const touch = e.touches[0];
+
+    paintTouch(touch);
+});
+
+canvas.addEventListener("touchend", () => {
+    isDrawing = false;
+});
+
+function paintTouch(touch) {
+
+    const rect = canvas.getBoundingClientRect();
+
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+
+    const col = Math.floor(x / CELL_SIZE);
+    const row = Math.floor(y / CELL_SIZE);
+
+    simulation.grid.setCell(
+        row,
+        col,
+        drawMode
+            ? simulation.rules.getPaintState()
+            : 0
+    );
+
+    renderer.draw(simulation.grid);
+}
+
 function paintCell(event) {
 
     const rect = canvas.getBoundingClientRect();
@@ -96,6 +143,27 @@ function paintCell(event) {
 
     renderer.draw(simulation.grid);
 }
+
+if (window.innerWidth < 768) {
+
+    document
+        .getElementById("generalInfoBox")
+        .classList.add("minimized");
+
+    document
+        .getElementById("ruleInfoBox")
+        .classList.add("minimized");
+
+    document
+        .querySelectorAll(".toggle-btn")
+        .forEach(btn => {
+            btn.textContent = "►";
+        });
+}
+
+window.addEventListener("resize", () => {
+    location.reload();
+});
 
 document
     .getElementById("playBtn")
@@ -567,11 +635,11 @@ const ruleInfo = {
             or single cluster and watch the fractal
             expand.
             <pre>
-            ⬛⬛⬛⬛🟥  ⬛⬛⬛⬛⬛ 
-            ⬛⬛⬛🟥⬛  🟥⬛⬛⬛⬛
-            ⬛⬛🟥⬛⬛  ⬛🟥🟥⬛⬛
-            ⬛🟥⬛⬛⬛  ⬛⬛🟥🟥⬛
-            🟥⬛⬛⬛⬛  ⬛🟥🟥🟥⬛
+            ⬛⬛⬛⬛🟥
+            ⬛⬛⬛🟥⬛  
+            ⬛⬛🟥⬛⬛
+            ⬛🟥⬛⬛⬛ 
+            🟥⬛⬛⬛⬛  
             </pre>
             </p>
         `

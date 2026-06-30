@@ -278,3 +278,36 @@ canvas {
 
     width: 190px;
 }
+
+@media (max-width: 768px) {
+
+    .controls button,
+    #ruleSelect {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .info-box {
+        width: 260px;
+        font-size: 13px;
+    }
+
+    #generationCounter {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .top-right-ui {
+        right: 5px;
+        top: 5px;
+        transform: scale(0.9);
+        transform-origin: top right;
+    }
+
+    #tipBox {
+        max-width: 250px;
+        left: 10px !important;
+        right: 10px;
+        width: auto;
+    }
+}
