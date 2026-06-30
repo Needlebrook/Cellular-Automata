@@ -195,7 +195,7 @@ canvas {
 
     bottom: 20px;
 
-    left: 20px;
+    left: 10px;
 }
 
 .info-box.minimized .info-body {
@@ -276,11 +276,11 @@ canvas {
 
 #ruleInfoBox.minimized {
 
-    left: 20px;
+    left: 220px;
 
     top: auto;
 
-    bottom: 100px;
+    bottom: 20px;
 
     width: 190px;
 }
